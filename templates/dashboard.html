@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Churn Dashboard</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            background:#eef1fb;
+            padding:40px;
+        }
+
+        .container{
+            max-width:1400px;
+            margin:auto;
+        }
+
+        h1{
+            text-align:center;
+            margin-bottom:35px;
+            color:#2b2b2b;
+            font-size:42px;
+        }
+
+        /* Cards */
+
+        .cards{
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            gap:25px;
+            margin-bottom:40px;
+        }
+
+        .card{
+            background:white;
+            border-radius:28px;
+            padding:35px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.08);
+            text-align:center;
+        }
+
+        .card h2{
+            color:#5b4df5;
+            font-size:42px;
+            margin-bottom:10px;
+        }
+
+        .card p{
+            color:#666;
+            font-size:18px;
+        }
+
+        /* Graph Grid */
+
+        .graph-grid{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:30px;
+        }
+
+        .graph-card{
+            background:white;
+            border-radius:30px;
+            padding:25px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .graph-card h3{
+            color:#5b4df5;
+            margin-bottom:20px;
+            font-size:26px;
+        }
+
+        img{
+            width:100%;
+            border-radius:18px;
+        }
+
+        @media(max-width:1100px){
+
+            .cards{
+                grid-template-columns:repeat(2,1fr);
+            }
+
+            .graph-grid{
+                grid-template-columns:1fr;
+            }
+        }
+
+        @media(max-width:650px){
+
+            .cards{
+                grid-template-columns:1fr;
+            }
+
+            h1{
+                font-size:34px;
+            }
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Customer Churn Dashboard</h1>
+
+    <!-- TOP CARDS -->
+
+    <div class="cards">
+
+        <div class="card">
+            <h2>{{ total_predictions }}</h2>
+            <p>Total Predictions</p>
+        </div>
+
+        <div class="card">
+            <h2>{{ churn_count }}</h2>
+            <p>Likely To Churn</p>
+        </div>
+
+        <div class="card">
+            <h2>{{ stay_count }}</h2>
+            <p>Likely To Stay</p>
+        </div>
+
+        <div class="card">
+            <h2>{{ avg_probability }}%</h2>
+            <p>Average Risk</p>
+        </div>
+
+    </div>
+
+    <!-- GRAPHS -->
+
+    <div class="graph-grid">
+
+        <div class="graph-card">
+            <h3>Churn vs Stay</h3>
+            <img src="{{ url_for('static', filename='churn_chart.png') }}">
+        </div>
+
+        <div class="graph-card">
+            <h3>Prediction Split</h3>
+            <img src="{{ url_for('static', filename='pie_chart.png') }}">
+        </div>
+
+        <div class="graph-card">
+            <h3>Risk Distribution</h3>
+            <img src="{{ url_for('static', filename='risk_chart.png') }}">
+        </div>
+
+        <div class="graph-card">
+            <h3>Probability Trend</h3>
+            <img src="{{ url_for('static', filename='trend_chart.png') }}">
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Customer Churn Analysis</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="result-container">
+
+    <div class="result-card">
+
+        <h1>Customer Churn Analysis</h1>
+
+        <!-- Circular Progress -->
+        <div
+            class="ring"
+            style="
+            background:
+            conic-gradient(
+            var(--progress-color)
+            {{ probability }}%,
+            #ececf5 {{ probability }}%
+            );
+            "
+        >
+
+            <div class="circle {{ color }}">
+                {{ probability }}%
+            </div>
+
+        </div>
+
+        <!-- Risk Text -->
+        <h2 class="risk-label {{ color }}">
+            {{ risk_level }}
+        </h2>
+
+        <!-- Prediction -->
+        <p class="prediction-text">
+            {{ prediction }}
+        </p>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div
+                class="progress-fill {{ color }}"
+                style="width: {{ probability }}%;">
+            </div>
+        </div>
+
+        <!-- Button -->
+        <div class="btn-wrapper">
+
+            <a href="/">
+
+                <button class="predict-btn">
+                    Predict Again
+                </button>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

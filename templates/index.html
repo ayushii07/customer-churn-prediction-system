@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Customer Churn Analytics
+    </title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static',
+    filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="main-wrapper">
+
+    <!-- TOP HEADING -->
+
+    <div class="hero-section">
+
+        
+
+        <h1>
+            Customer Churn Analytics
+        </h1>
+
+        <p>
+            Predict customer retention risk using machine learning insights
+            and behavioral analytics.
+        </p>
+
+    </div>
+
+
+    <!-- FORM CARD -->
+
+    <div class="form-container">
+
+        <form action="/predict"
+        method="POST">
+
+            <div class="form-grid">
+
+
+                <!-- Gender -->
+
+                <div class="input-group">
+
+                    <label>
+                        Gender
+                    </label>
+
+                    <select name="gender">
+
+                        <option>
+                            Male
+                        </option>
+
+                        <option>
+                            Female
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Senior Citizen -->
+
+                <div class="input-group">
+
+                    <label>
+                        Senior Citizen
+                    </label>
+
+                    <select name="SeniorCitizen">
+
+                        <option value="0">
+                            No
+                        </option>
+
+                        <option value="1">
+                            Yes
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Partner -->
+
+                <div class="input-group">
+
+                    <label>
+                        Partner
+                    </label>
+
+                    <select name="Partner">
+
+                        <option>
+                            Yes
+                        </option>
+
+                        <option>
+                            No
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Dependents -->
+
+                <div class="input-group">
+
+                    <label>
+                        Dependents
+                    </label>
+
+                    <select name="Dependents">
+
+                        <option>
+                            Yes
+                        </option>
+
+                        <option>
+                            No
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Tenure -->
+
+                <div class="input-group">
+
+                    <label>
+                        Tenure
+                    </label>
+
+                    <input
+                    type="number"
+                    step="0.1"
+                    name="tenure"
+                    required>
+
+                </div>
+
+
+                <!-- Monthly Charges -->
+
+                <div class="input-group">
+
+                    <label>
+                        Monthly Charges
+                    </label>
+
+                    <input
+                    type="number"
+                    step="0.1"
+                    name="MonthlyCharges"
+                    required>
+
+                </div>
+
+
+                <!-- Total Charges -->
+
+                <div class="input-group">
+
+                    <label>
+                        Total Charges
+                    </label>
+
+                    <input
+                    type="number"
+                    step="0.1"
+                    name="TotalCharges"
+                    required>
+
+                </div>
+
+
+                <!-- Phone Service -->
+
+                <div class="input-group">
+
+                    <label>
+                        Phone Service
+                    </label>
+
+                    <select name="PhoneService">
+
+                        <option>
+                            Yes
+                        </option>
+
+                        <option>
+                            No
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Multiple Lines -->
+
+                <div class="input-group">
+
+                    <label>
+                        Multiple Lines
+                    </label>
+
+                    <select name="MultipleLines">
+
+                        <option>
+                            Yes
+                        </option>
+
+                        <option>
+                            No
+                        </option>
+
+                        <option>
+                            No phone service
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Internet -->
+
+                <div class="input-group">
+
+                    <label>
+                        Internet Service
+                    </label>
+
+                    <select name="InternetService">
+
+                        <option>
+                            DSL
+                        </option>
+
+                        <option>
+                            Fiber optic
+                        </option>
+
+                        <option>
+                            No
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Security -->
+
+                <div class="input-group">
+
+                    <label>
+                        Online Security
+                    </label>
+
+                    <select name="OnlineSecurity">
+
+                        <option>
+                            Yes
+                        </option>
+
+                        <option>
+                            No
+                        </option>
+
+                        <option>
+                            No internet service
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Backup -->
+
+                <div class="input-group">
+
+                    <label>
+                        Online Backup
+                    </label>
+
+                    <select name="OnlineBackup">
+
+                        <option>
+                            Yes
+                        </option>
+
+                        <option>
+                            No
+                        </option>
+
+                        <option>
+                            No internet service
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Protection -->
+
+                <div class="input-group">
+
+                    <label>
+                        Device Protection
+                    </label>
+
+                    <select name="DeviceProtection">
+
+                        <option>
+                            Yes
+                        </option>
+
+                        <option>
+                            No
+                        </option>
+
+                        <option>
+                            No internet service
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Support -->
+
+                <div class="input-group">
+
+                    <label>
+                        Tech Support
+                    </label>
+
+                    <select name="TechSupport">
+
+                        <option>
+                            Yes
+                        </option>
+
+                        <option>
+                            No
+                        </option>
+
+                        <option>
+                            No internet service
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- TV -->
+
+                <div class="input-group">
+
+                    <label>
+                        Streaming TV
+                    </label>
+
+                    <select name="StreamingTV">
+
+                        <option>
+                            Yes
+                        </option>
+
+                        <option>
+                            No
+                        </option>
+
+                        <option>
+                            No internet service
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Movies -->
+
+                <div class="input-group">
+
+                    <label>
+                        Streaming Movies
+                    </label>
+
+                    <select name="StreamingMovies">
+
+                        <option>
+                            Yes
+                        </option>
+
+                        <option>
+                            No
+                        </option>
+
+                        <option>
+                            No internet service
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Contract -->
+
+                <div class="input-group">
+
+                    <label>
+                        Contract
+                    </label>
+
+                    <select name="Contract">
+
+                        <option>
+                            Month-to-month
+                        </option>
+
+                        <option>
+                            One year
+                        </option>
+
+                        <option>
+                            Two year
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Billing -->
+
+                <div class="input-group">
+
+                    <label>
+                        Paperless Billing
+                    </label>
+
+                    <select name="PaperlessBilling">
+
+                        <option>
+                            Yes
+                        </option>
+
+                        <option>
+                            No
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Payment -->
+
+                <div class="input-group">
+
+                    <label>
+                        Payment Method
+                    </label>
+
+                    <select name="PaymentMethod">
+
+                        <option>
+                            Electronic check
+                        </option>
+
+                        <option>
+                            Mailed check
+                        </option>
+
+                        <option>
+                            Bank transfer (automatic)
+                        </option>
+
+                        <option>
+                            Credit card (automatic)
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- BUTTON -->
+
+            <button
+            type="submit"
+            class="predict-btn">
+
+                Generate Prediction
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>
