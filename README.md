@@ -11,6 +11,9 @@
 ### Dashboard Analytics
 ![Dashboard](screenshots/dashboard.png)
 
+### History Analytics
+![History](screenshots/history.png)
+
 
 A machine learning web application that predicts telecom customer churn based on customer demographics, subscription details, and billing information.
 
