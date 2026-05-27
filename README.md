@@ -1,5 +1,16 @@
 # Customer Churn Prediction System
 
+## Project Preview
+
+### Home Page
+![Home Page](screenshots/home.png)
+
+### Prediction Result
+![Prediction Result](screenshots/result.png)
+
+### Dashboard Analytics
+![Dashboard](screenshots/dashboard.png)
+
 A machine learning web application that predicts telecom customer churn based on customer demographics, subscription details, and billing information.
 
 The project combines model training, real-time prediction, database storage, analytics, and deployment into a complete end-to-end workflow.
